@@ -1,0 +1,13 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#logo_ae{
+    width: 100px;
+}
+
+#navegador important{
+    background-color: rgb(125, 120, 189);
+}
