@@ -1,4 +1,4 @@
-const divElementos = document.getElementById ('elementosU')
+const divElementos = document.getElementById ('elementos')
 
 let tarjetas = '' 
 
