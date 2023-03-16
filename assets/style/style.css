@@ -17,9 +17,7 @@ main{
     background-size: cover;
 }
 
-#main_corto {
-    height: 100vh;
-}
+
 
 #boton1, #boton2, #boton3, #boton4, #boton5{
     margin: 0.1rem;
