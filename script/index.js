@@ -1,31 +1,38 @@
-const contenedor = document.getElementById('divElementos')
-const contenedorCheck = document.getElementById('checkContainer')
-const input = document.querySelector('input')
-const eventos = data.events 
-console.log(eventos);
-
-input.addEventListener('input',dobleFiltro)
-
-contenedorCheck.addEventListener('change',dobleFiltro)
-
-
-function dobleFiltro(){
-    let primerFiltro = filtrarPorTexto(eventos,input.value)
-    let segundoFiltro = filtrarPorCategoria(primerFiltro)
-    pintarEventos(segundoFiltro)
-}
-
-
+//import {data} from './amazing.js'
+import {crearCheckBoxes,pintarEventos, eventos} from './funciones.js'
 pintarEventos(eventos)
 crearCheckBoxes(eventos)
 
-function crearCheckBoxes(array){
+
+
+
+//console.log(eventos);
+
+//const contenedor = document.getElementById('divElementos')
+//const contenedorCheck = document.getElementById('checkContainer')
+//const input = document.querySelector('input')
+
+
+//input.addEventListener('input',dobleFiltro)
+
+//contenedorCheck.addEventListener('change',dobleFiltro)
+
+
+/*function dobleFiltro(){
+    let primerFiltro = filtrarPorTexto(eventos,input.value)
+    let segundoFiltro = filtrarPorCategoria(primerFiltro)
+    pintarEventos(segundoFiltro)
+}*/
+
+
+
+/*function crearCheckBoxes(array){
   let arrayCategorias = array.map(eventos => eventos.category)
-  /* console.log(arrayCountrys) */
+  // console.log(arrayCountrys) 
   let setCategoria = new Set(arrayCategorias)
-  /* console.log(setCountry) */
+  // console.log(setCountry) 
   let arrayChecks = Array.from(setCategoria)
-  /* console.log(arrayChecks) */
+  // console.log(arrayChecks) 
   let checkboxes = ''
   arrayChecks.forEach(category => {
       checkboxes += `<div class="form-check form-switch">
@@ -34,9 +41,9 @@ function crearCheckBoxes(array){
     </div>`
   })
   contenedorCheck.innerHTML = checkboxes
-}
+}*/
 
-function pintarEventos(array){
+/*function pintarEventos(array){
   if(array.length == 0){
       contenedor.innerHTML = `<h2 class="display-1 fw-bolder">Sorry, there were no matches</h2>`
       return
@@ -53,14 +60,14 @@ function pintarEventos(array){
                   </div>`
   })
   contenedor.innerHTML = tarjetas
-}
+}*/
 
-function filtrarPorTexto(array,texto){
+/*function filtrarPorTexto(array,texto){
   let arrayFiltrado = array.filter(elementos => elementos.name.toLowerCase().includes(texto.toLowerCase()))
   return arrayFiltrado
-}
+}*/
 
-function filtrarPorCategoria(array){
+/*function filtrarPorCategoria(array){
   let checkboxes = document.querySelectorAll("input[type='checkbox']")
   console.log(checkboxes);
   let arrayChecks = Array.from(checkboxes)
@@ -74,7 +81,7 @@ function filtrarPorCategoria(array){
       return arrayFiltrado
   }
   return array
-}
+}*/
 
 
 

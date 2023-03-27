@@ -1,10 +1,19 @@
+import {data} from './amazing.js'
+import {crearCheckBoxes, pintarTarjetasP, eventos} from './funciones.js'
+let arrayPastEvent = eventos.filter(elementos => elementos.date < data.currentDate)
+crearCheckBoxes(arrayPastEvent)
+pintarTarjetasP(arrayPastEvent)
+
+
+
+/*import {data} from './amazing.js'
 const eve = data.events
 const currentD = data.currentDate
 const divElementos = document.getElementById ('elementosP')
 
 
 let arrayPastEvent = eve.filter(elementos => elementos.date < currentD)
-console.log(arrayPastEvent);
+//console.log(arrayPastEvent);
 let tarjetas = ''
 arrayPastEvent.forEach(eventos => {
   tarjetas += `<div class="card" style="width: 18rem;">
@@ -16,7 +25,7 @@ arrayPastEvent.forEach(eventos => {
                   </div>
                 </div>`
 })
-divElementos.innerHTML = tarjetas
+divElementos.innerHTML = tarjetas*/
 
 //console.log(data);
 
