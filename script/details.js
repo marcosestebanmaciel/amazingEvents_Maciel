@@ -1,26 +1,43 @@
-import {data} from './amazing.js'
-const  queryString = location.search
-const params = new URLSearchParams(queryString)
-const id = params.get("id")
-const evenDat = data.events
-const eventDetails = evenDat.find(eventos => eventos.id == id)
-const detalles = document.getElementById('elementosD')
-detalles.innerHTML =  `<div class="card" style="width: 18rem;">
-                            <img src="${eventDetails.image}" class="card-img-top" alt="${eventDetails.name}">
-                            <div class="card-body">
-                                <h5 class="card-title">${eventDetails.name}</h5>
-                                <ul>
-                                    <li>Name: ${eventDetails.name}</li>
-                                    <li>Date: ${eventDetails.date}</li>
-                                    <li>Description: ${eventDetails.description}</li>
-                                    <li>Category: ${eventDetails.category}</li>
-                                    <li>Place: ${eventDetails.place}</li>
-                                    <li>Capacity: ${eventDetails.capacity}</li>
-                                    <li>Assistance: ${eventDetails.assistance}</li>
-                                    <li>Price: ${eventDetails.price} USD</li>
-                                </ul> 
-                            </div>
-                        </div>`
+const detallesCont = document.getElementById('elementosD')
+
+async function getDetails(){
+    await fetch('../amazing.json')
+        .then(response => response.json())
+        .then(data =>{
+            let detailsList = data.events
+
+            let params = location.search
+            let  querystring = new URLSearchParams(params)
+            let id = querystring.get('id')
+            const detail = detailsList.find(eventos => eventos.id == id)
+      
+            pintarTarjetaDetails(detail, detallesCont)
+    }).catch(error => console.error(error))
+  }getDetails()
+
+
+let tarjetasD = ''
+function pintarTarjetaDetails(detail, detallesCont) {
+    
+    tarjetasD += `<div class="card" style="width: 18rem;">
+                    <img src="${detail.image}" class="card-img-top" alt="${detail.name}">
+                    <div class="card-body">
+                        <h5 class="card-title">${detail.name}</h5>
+                        <ul>
+                            <li>Name: ${detail.name}</li>
+                            <li>Date: ${detail.date}</li>
+                            <li>Description: ${detail.description}</li>
+                            <li>Category: ${detail.category}</li>
+                            <li>Place: ${detail.place}</li>
+                            <li>Capacity: ${detail.capacity}</li>
+                            <li>Assistance:${detail.assistance}</li>
+                            <li>Price: ${detail.price} USD</li>
+                        </ul> 
+                    </div>
+                </div>`
+}
+detallesCont.innerHTML = tarjetasD
+
 
 
 /*<div class="card mb-3" style="max-width: 400px;">

@@ -1,8 +1,24 @@
-import {data} from './amazing.js'
+import {crearCheckBoxes, pintarTarjetasFilt, dobleFiltro} from './funciones.js'
+
+async function getEvent(){
+  await fetch('../amazing.json')
+  .then(response => response.json())
+  .then(data =>{
+    let arrayUpcEvent = data.events.filter(elementos => elementos.date > data.currentDate)
+    console.log(arrayUpcEvent)
+    pintarTarjetasFilt(arrayUpcEvent)
+    crearCheckBoxes(arrayUpcEvent)
+    dobleFiltro(arrayUpcEvent)
+  }).catch(error => console.error(error))
+}getEvent()
+
+
+
+/*import {data} from './amazing.js'
 import {crearCheckBoxes, pintarTarjetasFilt, eventos} from './funciones.js'
 let arrayUpcEvent = eventos.filter(elementos => elementos.date > data.currentDate)
 crearCheckBoxes(arrayUpcEvent)
-pintarTarjetasFilt(arrayUpcEvent)
+pintarTarjetasFilt(arrayUpcEvent)*/
 
 
 

@@ -1,7 +1,30 @@
-//import {data} from './amazing.js'
-import {crearCheckBoxes,pintarEventos, eventos} from './funciones.js'
+import {crearCheckBoxes, pintarEventos, dobleFiltro} from './funciones.js'
+
+async function getEvent(){
+  await fetch('../amazing.json')
+  .then(response => response.json())
+  .then(data =>{
+    let eventList = data.events
+    console.log(eventList)
+    pintarEventos(eventList)
+    crearCheckBoxes(eventList)
+    dobleFiltro(eventList)
+  }).catch(error => console.error(error))
+}getEvent()
+
+/*pintarEventos(eventList)
+crearCheckBoxes(eventList)
+dobleFiltro(eventList)*/
+
+
+
+
+/*import { data } from './amazing.js'
+import {crearCheckBoxes,pintarEventos, dobleFiltro} from './funciones.js'
+let eventos = data.events
 pintarEventos(eventos)
 crearCheckBoxes(eventos)
+dobleFiltro(eventos)*/
 
 
 

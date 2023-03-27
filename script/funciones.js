@@ -1,20 +1,12 @@
-import {data} from './amazing.js'
-
-export const contenedor = document.getElementById('divElementos')
-//export const contenedorP = document.getElementById('elementosP')
-//export const contenedorU = document.getElementById ('elementosU')
+const contenedor = document.getElementById('divElementos')
 const contenedorCheck = document.getElementById('checkContainer')
 const input = document.querySelector('input')
-export const eventos = data.events
-const currentD = data.currentDate
-export let arrayUpcEvent = eventos.filter(elementos => elementos.date > currentD)
-//console.log(eventos);
 
 input.addEventListener('input',dobleFiltro)
 contenedorCheck.addEventListener('change',dobleFiltro)
 
-export function dobleFiltro(){
-    let primerFiltro = filtrarPorTexto(eventos,input.value)
+export function dobleFiltro(arrayTot){
+    let primerFiltro = filtrarPorTexto(arrayTot,input.value)
     let segundoFiltro = filtrarPorCategoria(primerFiltro)
     pintarEventos(segundoFiltro)
 }
@@ -115,18 +107,3 @@ export function crearCheckBoxes(array){
     contenedorU.innerHTML = tarjetasU
   }
 
-
-
-    /*let arrayPastEvent = eve.filter(elementos => elementos.date < currentD)
-    console.log(arrayPastEvent);
-    let tarjetas = ''
-    arrayPastEvent.forEach(eventos => {
-    tarjetas += `<div class="card" style="width: 18rem;">
-                    <img src="${eventos.image}" class="card-img-top h-50" alt="${eventos.name}">
-                    <div class="card-body">
-                        <h5 class="card-title">${eventos.name}</h5>
-                        <p class="card-text">${eventos.description}</p>
-                        <a href="./details.html?id=${eventos.id}" class="btn btn-primary">Details</a>
-                    </div>
-                    </div>`
-    })*/
