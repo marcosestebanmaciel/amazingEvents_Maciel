@@ -18,6 +18,10 @@ main{
     min-height: 100 vh;
 }
 
+#carouselMarcos {
+    width: 50vw;
+}
+
 
 
 #boton1, #boton2, #boton3, #boton4, #boton5{

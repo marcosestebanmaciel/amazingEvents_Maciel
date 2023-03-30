@@ -4,39 +4,44 @@ async function getDetails(){
     await fetch('../amazing.json')
         .then(response => response.json())
         .then(data =>{
-            let detailsList = data.events
-
+            let eventList = data.events
+            console.log(eventList);
             let params = location.search
+            
             let  querystring = new URLSearchParams(params)
             let id = querystring.get('id')
-            const detail = detailsList.find(eventos => eventos.id == id)
-      
+            console.log(id);
+            let detail = eventList.find(eventos => eventos.id == id)
+            console.log(detail);
             pintarTarjetaDetails(detail, detallesCont)
     }).catch(error => console.error(error))
-  }getDetails()
+ }getDetails()
 
+ /*async function iniciar(){
 
-let tarjetasD = ''
-function pintarTarjetaDetails(detail, detallesCont) {
+ }*/
+
+function pintarTarjetaDetails(dato, container) {
+    console.log(dato);
     
-    tarjetasD += `<div class="card" style="width: 18rem;">
-                    <img src="${detail.image}" class="card-img-top" alt="${detail.name}">
-                    <div class="card-body">
-                        <h5 class="card-title">${detail.name}</h5>
-                        <ul>
-                            <li>Name: ${detail.name}</li>
-                            <li>Date: ${detail.date}</li>
-                            <li>Description: ${detail.description}</li>
-                            <li>Category: ${detail.category}</li>
-                            <li>Place: ${detail.place}</li>
-                            <li>Capacity: ${detail.capacity}</li>
-                            <li>Assistance:${detail.assistance}</li>
-                            <li>Price: ${detail.price} USD</li>
-                        </ul> 
-                    </div>
-                </div>`
+    container.innerHTML = `<div class="card" style="width: 18rem;">
+                                <img src="${dato.image}" class="card-img-top" alt="${dato.name}">
+                                <div class="card-body">
+                                    <h5 class="card-title">${dato.name}</h5>
+                                    <ul>
+                                        <li>Name: ${dato.name}</li>
+                                        <li>Date: ${dato.date}</li>
+                                        <li>Description: ${dato.description}</li>
+                                        <li>Category: ${dato.category}</li>
+                                        <li>Place: ${dato.place}</li>
+                                        <li>Capacity: ${dato.capacity}</li>
+                                        <li>Assistance:${dato.assistance}</li>
+                                        <li>Price: ${dato.price} USD</li>
+                                    </ul> 
+                                </div>
+                            </div>`
 }
-detallesCont.innerHTML = tarjetasD
+
 
 
 
